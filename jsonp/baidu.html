@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>baidu</title>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+<input type="text" value="" ng-model="kw" ng-change="kwChange()">
+    <ul>
+        <li ng-repeat="item in data">{{item}}</li>
+    </ul>
+</body>
+<script type="text/javascript" src="angular.min.js"></script>
+<script type="text/javascript">
+    var app = angular.module("myApp",[]);
+    app.controller("myCtrl",function($scope,$http){
+        $scope.kwChange = function () {
+            $http.jsonp("https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd="+$scope.kw+"&cb=JSON_CALLBACK").success(function(response){
+                $scope.data=response.s;
+                console.log(response);
+            });
+        };
+    });
+</script>
+</html>

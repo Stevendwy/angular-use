@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>http</title>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+    <ul>
+        <li ng-repeat="item in data" ng-bind="item.Name"></li>
+    </ul>
+</body>
+<script type="text/javascript" src="../js/angular.min.js"></script>
+<script type="text/javascript">
+    var app = angular.module("myApp",[]);
+    /*
+     $http 处理 angular 的前后台交互,类似于 jquery中的 ajax 方法
+     * 参数一:接口
+     * 参数二:
+     * get 方法:
+     * http://www.runoob.com/try/angularjs/data/Customers_JSON.php
+     * */
+    app.controller("myCtrl",function($scope,$http,$location){
+        $http.get('json.txt').success(function(response){
+//            直接获得的数组值
+            $scope.data=response.records;
+            //获取的值 两种方法
+//            console.log($location.$$absUrl);
+            console.log($location.absUrl());
+            console.log($location.host());
+            console.log($location);
+        });
+    });
+</script>
+</html>

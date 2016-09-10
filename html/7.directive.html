@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>directive-创建指令</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding: 0;
+        }
+        .ht{
+            color: #f00;
+            font-size:50px;
+        }
+    </style>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+    <div ng-bind-html="myHtml"></div>
+   <!-- <div my-number></div>
+    <div class="my-number"></div>-->
+    <!--directive:my-number -->
+</body>
+    <script type="text/javascript" src="../js/angular.min.js"></script>
+    <script type="text/javascript" src="../js/angular-sanitize.min.js"></script>
+    <script type="text/javascript">
+        //module 引入sanitize 将名字改为 ngSanitize
+        /* 创建指令关键字 directive
+         他是一个方法,两个参数:一 指令名 二:回调函数
+         restrict 规定指令的引用方式,
+         他有 A C E 默认有 A 的属性
+         A:使用 属性方式引用
+         C:使用 class方式 应用
+         E:使用 标签方式引用
+         */
+        var app = angular.module("myApp",['ngSanitize']);
+        app.controller("myCtrl",myFun);
+        function myFun($scope){
+            $scope.myHtml = "<div class='ht'>玉帝不找嫦娥</div>"
+        }
+        app.directive("myNumber",function(){
+           // 属性方式引用
+           /* return {
+                restrict:"M",
+                replace:true,
+                templateUrl:'7.template.html'
+            };*/
+            // class
+           /* return {
+                restrict:"C",
+                templateUrl:'7.template.html'
+            }*/
+        });
+    </script>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>指令-click</title>
+    <style type="text/css">
+        *{margin:0;padding: 0;}
+        .btn{
+            background:#f60;
+            border-radius: 6px;
+            color: #fff;
+            display: block;
+            height: 30px;
+            cursor: pointer;
+            line-height:30px;
+            text-align: center;
+            width:80px;
+        }
+        .div{
+            background: #000;
+            height: 600px;
+            width: 600px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<!--
+     ng-click 点击绑定的元素 点击触发
+     ng-show 当他的值为 true 时候,显示元素 实质是 display:block
+     ng-hide 当他的值为false 时候,隐藏元素 实质是 display:none
+
+-->
+<div ng-app="" ng-init="isBool=true;ks=false">
+    <span class="btn" ng-click="isBool=!isBool">点击切换</span>
+    <div class="div" ng-show="isBool">问君能有几多愁</div>
+    <input type="checkbox" ng-click="ks=!ks">
+    <div class="div" ng-show="ks">现实点神</div>
+
+</div>
+
+
+</body>
+<script type="text/javascript" src="../js/angular.min.js"></script>
+</html>

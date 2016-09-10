@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>过滤器原生</title>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+<!--前面自己的数据,竖杠后 解析要求-->
+        {{678|currency}}<br/>
+        {{678|currency:'¥'}}<br/>
+        {{jsonData|json}}<br/>
+        <span ng-bind="678|currency"></span><br/>
+        {{'Abcdefg'|uppercase}}<br/>
+        {{46578643540.235|number:2}}
+        <ul>
+            <li ng-repeat="item in jsonData2|orderBy:'age'">{{item.name}}{{item.age}}</li>
+        </ul>
+
+</body>
+<script type="text/javascript" src="../js/angular.min.js"></script>
+<script type="text/javascript">
+    var app = angular.module("myApp",[]);
+    app.controller("myCtrl",function($scope){
+        $scope.jsonData={
+            name:"刘秀",
+            age:50
+        };
+        $scope.jsonData2=[
+            {
+                name:"刘秀",
+                age:50
+            },
+            {
+                name:"刘邦",
+                age:30
+            },
+            {
+                name:"始皇",
+                age:35
+            },
+            {
+                name:"可汗",
+                age:45
+            }
+        ];
+    });
+</script>
+</html>

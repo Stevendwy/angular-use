@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>过滤器--创建</title>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+<!--前面自己的数据,竖杠后 解析要求-->
+<ul>
+    <li ng-repeat="item in jsonData2|orderBy:'age'">{{item.name}}{{item.age}}</li>
+</ul>
+{{[1,2,3,5,6,7,7]|myFilter}}
+</body>
+<script type="text/javascript" src="../js/angular.min.js"></script>
+<script type="text/javascript">
+    var app = angular.module("myApp",[]);
+    app.controller("myCtrl",function($scope){
+        $scope.jsonData2=[
+            {
+                name:"刘秀",
+                age:50
+            },
+            {
+                name:"刘邦",
+                age:30
+            },
+            {
+                name:"始皇",
+                age:35
+            },
+            {
+                name:"可汗",
+                age:45
+            }
+        ];
+    });
+//    创建过滤器
+//    关键字为 filter 参数一:名字 参数二:回调函数 执行过滤器的功能
+        app.filter('myFilter',function(){
+            return function(xingcan){
+                var array =[];
+                for (var i=0;i<xingcan.length;i++){
+                    if (i%2!==0){
+                        array.push(xingcan[i]);
+                    }
+                }
+                return array;
+            };
+        });
+</script>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>指令</title>
+</head>
+<body>
+<!--
+    ng 指令
+    ng-app 使用 angular必须引用该指令,是指angular 的工作区域
+    ng-init 理解为: angular 的数据源
+    ng-model 理解为:他是先找到 最外层的 ng-app 然后在作用域内查找他自己的 view 位置给予显示
+    双大括号 ->{{}}:里面绑定数据
+
+-->
+
+    <div ng-app=""  ng-init="name='温庭筠';age=45">
+        <input type="checkbox" value="" ng-model="sect">
+        <select name="" id="">
+            <option value="">金角大王</option>
+            <option value="">秦可卿</option>
+            <option value="">张飞</option>
+            <option value="" ng-selected="sect">武松</option>
+        </select>
+    </div>
+
+
+</body>
+<script type="text/javascript" src="../js/angular.min.js"></script>
+</html>

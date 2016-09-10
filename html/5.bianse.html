@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>controller</title>
+    <style type="text/css">
+        *{ margin:0;padding:0;}
+        .btn{ cursor: pointer;display: block;}
+        ul{ list-style-type:square;}
+        .div{ background:#000;color: #fff;font-size: 30px;text-align:center; height: 100px;width:300px;line-height:100px;}
+        .a{ color:red;}
+        .b{ color:blue;}
+        .c{ color:green;}
+        .d{ color:gold;}
+        .e{ color:bisque;}
+        .f{ color:blueviolet;}
+    </style>
+</head>
+<body ng-app="myApp">
+<div  ng-controller="myCtrl" ng-init="nn=0;mm=0">
+    <ul>
+        <li ng-repeat="i in data" ng-class-odd="color[mm]" ng-class-even="color[nn]">{{i.name}}{{i.age}}</li>
+    </ul>
+    <input type="button" value="点击" ng-click="myClick()" class="btn" ng-model="a"/>
+    <input type="button" value="点击" ng-click="myClickBool()" class="btn" ng-model="b"/>
+    <div class="div" ng-show="isBool">醉卧沙场君莫笑</div>
+</div>
+</body>
+<script type="text/javascript" src="../js/angular.min.js"></script>
+<script type="text/javascript">
+    //angular 使用input 必须添加 一个 ng-model
+    //创建一个 module
+    //两个参数 参数一: app名称 参数二: 引入依赖,也就是angular 模块儿
+    //是一个数组形式,可以同时引用 多个模块儿
+    var app = angular.module("myApp",[]);
+
+    //创建controller,他有两个参数,第一个:controller 第二个为:执行函数
+    //$scope 连接module 和 view 的数据 传递桥梁
+    function random(m,n){
+        return Math.floor(Math.random()*(n-m+1)+m);
+    }
+
+    app.controller("myCtrl",function($scope){
+        $scope.data = [
+            {name:"康熙",age:18},
+            {name:"王宗智",age:18},
+            {name:"王献之",age:18},
+            {name:"王羲之",age:18},
+            {name:"成吉思汗",age:18},
+        ];
+        $scope.color=['a','b','c','d','e','f'];
+        //创建点击事件
+
+        $scope.mm = $scope.nn = 0;
+        $scope.myClick = function(){
+            $scope.nn=random(0,5);
+            $scope.mm=random(0,5);
+            if($scope.nn==$scope.mm){
+//                $scope.mm=random(0,5);
+                $scope.nn=2;
+                $scope.mm=5;
+            }
+        };
+        //声明一个booler 值
+        $scope.isBool = true;
+        $scope.myClickBool = function(){
+            $scope.isBool =!$scope.isBool;
+        };
+    });
+
+
+
+</script>
+</html>

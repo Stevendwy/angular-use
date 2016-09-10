@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>select</title>
+</head>
+<body ng-app="myApp">
+        <div ng-controller="myCtrl">
+            <!--ng-bind 绑定-->
+            <!--<span ng-bind="asd"></span>-->
+            <select name="" >
+                <option value="" ng-repeat="item in data">{{item.name}}</option>
+            </select>
+
+            <br/>
+            <select name="" ng-model="myselect" ng-options="item.name for item in data"></select>
+            <p>您选择了{{myselect.name}},他是{{myselect.age}}岁</p>
+        </div>
+</body>
+<script type="text/javascript" src="../js/angular.min.js"></script>
+<script type="text/javascript">
+    var app = angular.module("myApp",[]);
+    app.controller("myCtrl",function($scope){
+        $scope.asd = "错错错";
+        $scope.data=[
+            {name:"康熙",age:18},
+            {name:"王宗智",age:18},
+            {name:"王献之",age:18},
+            {name:"王羲之",age:18},
+            {name:"成吉思汗",age:18}
+        ];
+    });
+</script>
+</html>

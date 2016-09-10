@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>angular case</title>
+</head>
+<body>
+
+    <div ng-app="" ng-init="a=2;b=3">
+        <input type="text" value="" ng-model="a">X
+        <input type="text" value="" ng-model="b">={{a*b}}
+    </div>
+
+</body>
+<script type="text/javascript" src="../js/angular.min.js"></script>
+<script type="text/javascript">
+
+    //1.   var s = {'a':1,'b':2,'c':3}['c'];
+//      取值方式:字面量取值方式,不单单可以获取数据,也可以执行代码片段
+//      后面传入的为判断数据,如果他的值和字面量的属性相同,则执行对应的数据或者执行对应的代码
+
+    //2.   (3>4)||alert(8990);
+//      从左向右依次判断,如果代码或者数据为true,则返回这个数据或者执行这段代码,
+//      执行完毕后将不再向右判断即判断为true就返回
+
+//3.    2&&(3<4)&&console.log("aaaa ")&&alert(9999);
+//        从左向右依次进行判断 false 返回
+</script>
+</html>

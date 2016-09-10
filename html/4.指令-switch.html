@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>指令-switch</title>
+    <style>
+        .bun{
+            border:1px solid red;
+            width: 60px;
+            height:35px;
+            -webkit-border-radius:5px;
+            -moz-border-radius:5px;
+            border-radius:5px;
+        }
+    </style>
+</head>
+<body ng-app="" ng-init="n=0">
+
+    <div ng-switch="" on="n">
+        <p ng-switch-default="0">0</p>
+        <p ng-switch-when="1">1</p>
+        <p ng-switch-when="2">2</p>
+        <p ng-switch-when="3">3</p>
+        <p ng-switch-when="4">4</p>
+        <p ng-switch-when="5">5</p>
+    </div>
+    <input type="button" class="bun" value="aaaa" ng-click="n=n+1">
+</body>
+<script type="text/javascript" src="../js/angular.min.js"></script>
+</html>

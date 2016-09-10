@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>service</title>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+<ul>
+    <li>{{scct}}</li>
+    <li>{{ba}}</li>
+</ul>
+</body>
+<script type="text/javascript" src="../js/angular.min.js"></script>
+<script type="text/javascript">
+    var app = angular.module("myApp",[]);
+    /*
+     $http 处理 angular 的前后台交互,类似于 jquery中的 ajax 方法
+     * 参数一:接口
+     * 参数二:
+     * get 方法:
+     * http://www.runoob.com/try/angularjs/data/Customers_JSON.php
+     * */
+//    设置定时器 和 延时器
+    app.controller("myCtrl",function($scope,$interval,$timeout,myService){
+        $scope.scct=0;
+        $scope.txt = "李煜";
+        $interval(function(){
+           $scope.scct++;
+       },1000);
+        $timeout(function(){
+            $scope.scct+=1000;
+            $scope.ba = myService.addText($scope.txt);
+        },5000);
+
+    });
+    /*
+    * 创建自己的服务 也就是 js 方法
+    * service 参数一: 创建的服务名 参数二:服务的执行方法
+    * */
+    app.service("myService",function(){
+        this.addText = function(str) {
+            return "一行白鹭上青天"+str;
+        };
+    });
+
+</script>
+</html>

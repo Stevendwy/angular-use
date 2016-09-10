@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>指令-repeat-important</title>
+    <style type="text/css">
+        .a{
+            background: #f60;
+        }
+        .b{
+            background: green;
+        }
+    </style>
+</head>
+<body>
+<!--
+    repeat 循环创建出dom 元素,并且每个元素都绑定数据 !!!重要
+
+-->
+    <div ng-app="" ng-init="parms=[{name:'黄河',age:100},{name:'之',age:20},{name:'水天',age:500},{name:'上来',age:1000}]">
+        <ul>
+            <!--<li ng-repeat="item in parms" ng-class="$odd&&'a'">{{$index}}{{item.name}}{{item.age}}</li>-->
+            <li ng-repeat="item in parms" ng-class-odd="'a'" ng-class-even="'b'">{{$index}}{{item.name}}{{item.age}}</li>
+        </ul>
+    </div>
+
+
+</body>
+<script type="text/javascript" src="../js/angular.min.js"></script>
+</html>
